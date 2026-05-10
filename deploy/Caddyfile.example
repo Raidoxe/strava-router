@@ -1,0 +1,26 @@
+# Caddy reverse proxy. One file gives you:
+#   - automatic Let's Encrypt TLS
+#   - HTTP -> HTTPS redirect
+#   - reverse proxy to the Flask app
+#
+# Replace YOUR_DOMAIN with the hostname you want, then save as
+# /etc/caddy/Caddyfile and `sudo systemctl reload caddy`.
+#
+# If you're using Cloudflare Tunnel instead, ignore this file — the tunnel
+# handles TLS for you.
+
+YOUR_DOMAIN {
+	encode gzip zstd
+	reverse_proxy 127.0.0.1:8000
+
+	# Webhook receiver under a path, locked to GitHub IPs would be ideal
+	# but the HMAC check inside webhook_listener.py is the real gate.
+	handle_path /__deploy* {
+		reverse_proxy 127.0.0.1:9001
+	}
+
+	log {
+		output file /var/log/caddy/strava-router.log
+		level INFO
+	}
+}

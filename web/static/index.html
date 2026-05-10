@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vienna Hot-Route Planner</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <aside id="sidebar">
+    <header>
+      <h1>Hot-Route Planner</h1>
+      <p class="sub">Vienna · powered by Strava heatmap</p>
+    </header>
+
+    <section class="panel">
+      <label for="address">Address</label>
+      <div class="search-row">
+        <input
+          id="address"
+          type="text"
+          placeholder="e.g. Wiedner Gürtel 62, Wien"
+          autocomplete="off"
+        />
+        <button id="search-btn" type="button">Find</button>
+      </div>
+      <ul id="search-results" hidden></ul>
+      <div id="snap-info" class="hint" hidden></div>
+    </section>
+
+    <section class="panel">
+      <label for="target-km">Distance: <strong id="target-label">4.0 km</strong></label>
+      <input id="target-km" type="range" min="2" max="15" step="0.5" value="4" />
+      <div class="hint">Slide between 2 and 15 km.</div>
+    </section>
+
+    <section class="panel">
+      <button id="plan-btn" type="button" disabled>Generate route</button>
+      <button id="reroll-btn" type="button" hidden>Try a different one</button>
+      <div id="status" class="hint"></div>
+    </section>
+
+    <section id="result-panel" class="panel" hidden>
+      <h2>Route</h2>
+      <div class="stats">
+        <div><span>Distance</span><strong id="s-length">—</strong></div>
+        <div><span>Heat (avg)</span><strong id="s-heat">—</strong></div>
+        <div><span>Direction</span><strong id="s-direction">—</strong></div>
+        <div><span>Signals</span><strong id="s-signals">—</strong></div>
+        <div><span>Junctions</span><strong id="s-junctions">—</strong></div>
+        <div><span>Sharp turns</span><strong id="s-sharp">—</strong></div>
+      </div>
+
+      <details class="streets">
+        <summary>Streets passed</summary>
+        <ol id="s-streets"></ol>
+      </details>
+
+      <div class="downloads">
+        <a id="dl-gpx" href="#" download="route.gpx">Download GPX</a>
+        <a id="dl-geojson" href="#" download="route.geojson">Download GeoJSON</a>
+      </div>
+
+      <p class="hint">
+        Tip: import the GPX into Strava (My Activities → Upload → GPX) or any
+        Garmin/Wahoo/Apple Health-compatible app.
+      </p>
+    </section>
+
+    <footer>
+      <p class="hint">
+        Heatmap data © Strava. Map © OpenStreetMap contributors. Geocoding by
+        Nominatim.
+      </p>
+    </footer>
+  </aside>
+
+  <main id="map"></main>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

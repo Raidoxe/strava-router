@@ -1,0 +1,84 @@
+== TOP 50 hottest run streets in Vienna (length >= 50m) ==
+rank    mean     p95     max   len(m)  highway         name
+   1   1.000   1.000   1.000     3219  cycleway        Wienflussweg
+   2   1.000   1.000   1.000     2413  track           (unnamed)
+   3   1.000   1.000   1.000     2346  cycleway        (unnamed)
+   4   1.000   1.000   1.000     1808  cycleway        Uferpromenade
+   5   1.000   1.000   1.000     1696  residential     Hauptallee
+   6   1.000   1.000   1.000     1606  track           Vorwerkstraße
+   7   1.000   1.000   1.000     1159  cycleway        Anton-Schmid-Promenade
+   8   1.000   1.000   1.000     1152  footway         (unnamed)
+   9   1.000   1.000   1.000      979  residential     Fabrikstraße
+  10   1.000   1.000   1.000      975  track           (unnamed)
+  11   1.000   1.000   1.000      955  cycleway        An der unteren Alten Donau
+  12   1.000   1.000   1.000      952  track           (unnamed)
+  13   1.000   1.000   1.000      924  service         Schlossergassl
+  14   1.000   1.000   1.000      922  cycleway        Anton-Schmid-Promenade
+  15   1.000   1.000   1.000      904  footway         (unnamed)
+  16   1.000   1.000   1.000      860  footway         Anton-Schmid-Promenade
+  17   1.000   1.000   1.000      858  track           (unnamed)
+  18   1.000   1.000   1.000      853  residential     Hauptallee
+  19   1.000   1.000   1.000      841  track           Wilfried-Kirchner-Weg
+  20   1.000   1.000   1.000      804  footway         Hermann-Zottl-Promenade
+  21   1.000   1.000   1.000      789  residential     Senderstraße
+  22   1.000   1.000   1.000      743  cycleway        (unnamed)
+  23   1.000   1.000   1.000      727  cycleway        (unnamed)
+  24   1.000   1.000   1.000      723  track           Grenzweg
+  25   1.000   1.000   1.000      712  track           Schwarzenbergallee
+  26   1.000   1.000   1.000      700  path            Karoline-Tintner-Promenade
+  27   1.000   1.000   1.000      698  residential     Fabrikstraße
+  28   1.000   1.000   1.000      693  service         Fahrstraße
+  29   1.000   1.000   1.000      668  residential     Am Bisamberg
+  30   1.000   1.000   1.000      663  track           (unnamed)
+  31   1.000   1.000   1.000      641  track           (unnamed)
+  32   1.000   1.000   1.000      640  track           Luckenholzgasse
+  33   1.000   1.000   1.000      637  residential     Bahnhofstraße
+  34   1.000   1.000   1.000      636  track           Grenzweg
+  35   1.000   1.000   1.000      622  cycleway        (unnamed)
+  36   1.000   1.000   1.000      619  residential     Am Bisamberg
+  37   1.000   1.000   1.000      605  residential     Schulgasse
+  38   1.000   1.000   1.000      595  residential     An der oberen Alten Donau
+  39   1.000   1.000   1.000      584  cycleway        (unnamed)
+  40   1.000   1.000   1.000      575  footway         (unnamed)
+  41   1.000   1.000   1.000      565  footway         (unnamed)
+  42   1.000   1.000   1.000      550  cycleway        (unnamed)
+  43   1.000   1.000   1.000      549  track           Saltenstraße
+  44   1.000   1.000   1.000      548  cycleway        Steinseeweg
+  45   1.000   1.000   1.000      533  cycleway        Kaistraße
+  46   1.000   1.000   1.000      533  cycleway        Jürgenssenweg
+  47   1.000   1.000   1.000      527  track           (unnamed)
+  48   1.000   1.000   1.000      527  cycleway        (unnamed)
+  49   1.000   1.000   1.000      520  service         Am Durchstich
+  50   1.000   1.000   1.000      510  track           Vorwerkstraße
+
+== TOP 30 unique named streets (deduplicated) ==
+   1.000    3219m  cycleway        Wienflussweg
+   1.000    1808m  cycleway        Uferpromenade
+   1.000    1696m  residential     Hauptallee
+   1.000    1606m  track           Vorwerkstraße
+   1.000    1159m  cycleway        Anton-Schmid-Promenade
+   1.000     979m  residential     Fabrikstraße
+   1.000     955m  cycleway        An der unteren Alten Donau
+   1.000     924m  service         Schlossergassl
+   1.000     841m  track           Wilfried-Kirchner-Weg
+   1.000     804m  footway         Hermann-Zottl-Promenade
+   1.000     789m  residential     Senderstraße
+   1.000     723m  track           Grenzweg
+   1.000     712m  track           Schwarzenbergallee
+   1.000     700m  path            Karoline-Tintner-Promenade
+   1.000     693m  service         Fahrstraße
+   1.000     668m  residential     Am Bisamberg
+   1.000     640m  track           Luckenholzgasse
+   1.000     637m  residential     Bahnhofstraße
+   1.000     605m  residential     Schulgasse
+   1.000     595m  residential     An der oberen Alten Donau
+   1.000     549m  track           Saltenstraße
+   1.000     548m  cycleway        Steinseeweg
+   1.000     533m  cycleway        Kaistraße
+   1.000     533m  cycleway        Jürgenssenweg
+   1.000     520m  service         Am Durchstich
+   1.000     486m  track           Hermannskogelweg
+   1.000     485m  service         Hietzinger Allee
+   1.000     464m  path            Olga-Misař-Promenade
+   1.000     440m  path            Friedl-Dicker-Brandeis-Promenade
+   1.000     439m  cycleway        Ostrandstraße

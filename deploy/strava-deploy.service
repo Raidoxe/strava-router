@@ -1,0 +1,15 @@
+[Unit]
+Description=Strava Router auto-deploy webhook listener
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/srv/strava-router
+EnvironmentFile=/etc/strava-router/deploy.env
+ExecStart=/usr/bin/env python3 /srv/strava-router/deploy/webhook_listener.py
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

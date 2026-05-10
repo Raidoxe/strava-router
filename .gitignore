@@ -1,0 +1,45 @@
+# Compiled C library (built per-platform via `make`)
+dijkstra_core.so
+dijkstra_core.dylib
+dijkstra_core.dll
+
+# Generated route outputs
+route.geojson
+route.gpx
+route_summary.txt
+route_*.geojson
+route_*.gpx
+route_*_summary.txt
+route_*_overlay.png
+routes_index.html
+
+# Python cruft
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.python-version
+
+# Editor / OS noise
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Large data — too big for git, transferred to server once via scp.
+# Keep heatmap_vienna_run_z14.json (small metadata) tracked.
+heatmap_vienna_run_z14.png
+streets_heat_z14.geojson
+streets_heat_z14.csv
+streets_vienna.geojson
+
+# Generated cache files (built from the data above on first run)
+streets_graph.npz
+signal_flag.npy
+
+# Raw heatmap tiles (regenerable)
+tiles/
+
+# Local secrets
+deploy.env
+.env

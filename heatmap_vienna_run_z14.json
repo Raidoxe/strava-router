@@ -1,0 +1,25 @@
+{
+  "sport": "run",
+  "color": "hot",
+  "zoom": 14,
+  "authenticated": true,
+  "tile_size": 512,
+  "tile_range": {
+    "x_min": 8928,
+    "y_min": 5673,
+    "x_max": 8946,
+    "y_max": 5687
+  },
+  "image_size": [
+    9728,
+    7680
+  ],
+  "geo_bounds": {
+    "west": 16.171875,
+    "north": 48.327039130634766,
+    "east": 16.58935546875,
+    "south": 48.10743118848039
+  },
+  "tiles_fetched": 283,
+  "tiles_empty_or_failed": 2
+}

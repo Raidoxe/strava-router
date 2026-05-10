@@ -1,0 +1,27 @@
+# Cloudflare Tunnel config — best for a home server behind NAT.
+# Save as ~/.cloudflared/config.yml and start with:
+#   cloudflared tunnel run strava-router
+#
+# Setup steps:
+#   1. cloudflared login                       (browser, picks the domain)
+#   2. cloudflared tunnel create strava-router (writes a tunnel UUID + creds JSON)
+#   3. Edit this file: paste the tunnel UUID, set the hostname.
+#   4. cloudflared tunnel route dns strava-router YOUR_DOMAIN
+#   5. cloudflared tunnel run strava-router    (or install as a service: sudo cloudflared service install)
+
+tunnel: REPLACE_WITH_YOUR_TUNNEL_UUID
+credentials-file: /home/CHANGE_ME/.cloudflared/REPLACE_WITH_YOUR_TUNNEL_UUID.json
+
+ingress:
+  - hostname: YOUR_DOMAIN
+    service: http://127.0.0.1:8000
+    originRequest:
+      noTLSVerify: true
+
+  # Webhook listener - same hostname, /__deploy path, separate port.
+  # GitHub posts here, our listener verifies HMAC.
+  - hostname: YOUR_DOMAIN
+    path: /__deploy
+    service: http://127.0.0.1:9001
+
+  - service: http_status:404

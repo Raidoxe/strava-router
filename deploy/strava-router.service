@@ -6,10 +6,9 @@ After=network.target
 Type=simple
 User=%i
 WorkingDirectory=/srv/strava-router
-ExecStart=/usr/bin/env gunicorn -w 2 --threads 4 -b 127.0.0.1:8000 --chdir /srv/strava-router web.server:app
+ExecStart=/srv/strava-router/.venv/bin/gunicorn -w 2 --threads 4 -b 127.0.0.1:8000 --chdir /srv/strava-router web.server:app
 Restart=on-failure
 RestartSec=3
-# Tighten the sandbox a little.
 NoNewPrivileges=true
 ProtectSystem=strict
 ReadWritePaths=/srv/strava-router

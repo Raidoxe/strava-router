@@ -14,20 +14,20 @@ echo "==> rebuild dijkstra_core"
 make --silent clean
 make --silent
 
-echo "==> python deps"
-python3 -m pip install --quiet --user -r requirements.txt
+echo "==> python venv + deps"
+if [ ! -d .venv ]; then
+  python3 -m venv .venv
+fi
+.venv/bin/pip install --quiet --upgrade pip
+.venv/bin/pip install --quiet -r requirements.txt
 
 echo "==> sanity-check graph cache present"
 test -f streets_graph.npz || {
   echo "MISSING streets_graph.npz - upload it once with scp." >&2
   exit 2
 }
-test -f signal_flag.npy || {
-  echo "MISSING signal_flag.npy - upload it once with scp." >&2
-  exit 2
-}
 
 echo "==> restart app service"
-sudo /usr/bin/systemctl restart strava-router@$USER.service
+sudo /usr/bin/systemctl restart "strava-router@$USER.service"
 
 echo "==> deploy ok"

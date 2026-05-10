@@ -93,3 +93,4 @@ diverge geographically.
 
 The hot inner loop is in `dijkstra_core.c`. Total wall time per route is
 ~2 seconds for Vienna (1.27 M states, ~12 ms per return Dijkstra).
+

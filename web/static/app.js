@@ -6,11 +6,35 @@ const VIENNA_CENTER = [48.2082, 16.3738];
 
 const map = L.map("map", { zoomControl: true }).setView(VIENNA_CENTER, 13);
 
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+const osmLayer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
   attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
+
+// Strava heatmap overlay — served from our Flask backend out of the local
+// tile cache (tiles/run/{z}/{x}/{y}.png). Cache only has z=11 and z=14,
+// so clamp native zoom to 14 and let Leaflet up/down-scale.
+const heatmapLayer = L.tileLayer("/tiles/run/{z}/{x}/{y}.png", {
+  minZoom: 0,
+  maxZoom: 19,
+  minNativeZoom: 14,
+  maxNativeZoom: 14,
+  opacity: 0.7,
+  bounds: [
+    [VIENNA_BBOX.south, VIENNA_BBOX.west],
+    [VIENNA_BBOX.north, VIENNA_BBOX.east],
+  ],
+  attribution: 'Heatmap &copy; <a href="https://www.strava.com/heatmap">Strava</a>',
+}).addTo(map);
+
+L.control
+  .layers(
+    { OpenStreetMap: osmLayer },
+    { "Strava heatmap": heatmapLayer },
+    { collapsed: false, position: "topright" }
+  )
+  .addTo(map);
 
 // Show the data-coverage rectangle so the user understands the demo limit.
 L.rectangle(

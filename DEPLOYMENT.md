@@ -59,16 +59,23 @@ pip3 install --user -r requirements.txt
 
 ### Transfer the data files (one-time)
 
-The two big input files are gitignored. Copy from your laptop:
+The big input files and the heatmap tile cache are gitignored. Copy from your
+laptop:
 
 ```bash
 # from your laptop, not the server
 scp streets_graph.npz traffic_signals.json YOUR_USER@server:/srv/strava-router/
+scp -r tiles/ YOUR_USER@server:/srv/strava-router/   # ~20 MB, 289 PNGs
 ```
 
 `signal_flag.npy` auto-builds from `traffic_signals.json` on first request.
 You only need `streets_heat_z14.geojson` if you want to *regenerate* the
 graph cache; otherwise the npz is enough.
+
+The `tiles/` directory holds the cached Strava heatmap tiles served by the
+`/tiles/<sport>/<z>/<x>/<y>.png` endpoint. Without it the heatmap overlay on
+the map will be empty (but the route planner still works). `deploy.sh` will
+warn if it's missing.
 
 ### Quick sanity check
 

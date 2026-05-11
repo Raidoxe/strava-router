@@ -27,6 +27,13 @@ test -f streets_graph.npz || {
   exit 2
 }
 
+# Heatmap tile cache is optional - the app still runs without it, but the
+# in-browser heatmap overlay will be empty. Warn so the user notices.
+if [ ! -d tiles ] || [ -z "$(ls -A tiles/run/14 2>/dev/null)" ]; then
+  echo "WARN: tiles/ cache missing or empty - heatmap overlay will 404." >&2
+  echo "      Upload with: scp -r tiles/ <user>@<host>:$(pwd)/" >&2
+fi
+
 echo "==> restart app service"
 sudo /usr/bin/systemctl restart "strava-router@$USER.service"
 
